@@ -1,0 +1,32 @@
+# Java
+target/
+*.class
+
+
+# Maven
+.mvn/
+
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+
+# IntelliJ
+.idea/
+*.iml
+
+
+# Logs
+*.log
+
+
+# React
+node_modules/
+dist/
+build/
+
+
+# Environment
+.env

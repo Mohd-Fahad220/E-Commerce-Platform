@@ -31,23 +31,23 @@ public class JwtFilter extends OncePerRequestFilter {
 
 	        String header = request.getHeader("Authorization");
 
-	        // 🔴 If no token → continue
+	        //  If no token → continue
 	        if (header == null || !header.startsWith("Bearer")) {
 	            filterChain.doFilter(request, response);
 	            return;
 	        }
 
-	        // 🟢 Extract token
+	        //  Extract token
 	        String token = header.substring(7);
 
-	        // 🟢 Extract username from token
+	        //  Extract username from token
 	        String username = jwtUtil.extractUsername(token);
 
-	        // 🟢 Load user from DB
+	        //  Load user from DB
 	        UserDetails userDetails =
 	                userDetailsService.loadUserByUsername(username);
 
-	        // 🟢 Validate token
+	        //  Validate token
 	        if (jwtUtil.validateToken(token, username)) {
 
 	            UsernamePasswordAuthenticationToken auth =
@@ -57,7 +57,7 @@ public class JwtFilter extends OncePerRequestFilter {
 	                            userDetails.getAuthorities()
 	                    );
 
-	            // 🔥 Tell Spring: user is authenticated
+	            //  Tell Spring: user is authenticated
 	            SecurityContextHolder.getContext().setAuthentication(auth);
 	        }
 

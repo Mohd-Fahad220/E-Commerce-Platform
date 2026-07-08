@@ -53,7 +53,7 @@ public class OrderServiceImpl implements IOrderService {
         order.setUserId(request.getUserId());
         order.setProductName(request.getProductName());
         order.setQuantity(request.getQuantity());
-        double price = Math.round(new Random().nextDouble(2000.0) * 10000 * 100.0) / 100.0;
+        double price = Math.round(new Random().nextDouble(2000.0) * 10000 * 100.0) / 1000.0;
         order.setPrice(price); // random price i am setting 
         order.setOrderDate(LocalDateTime.now());
         order.setStatus("Order Placed");
